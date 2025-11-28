@@ -141,12 +141,14 @@
 @media (max-width: 600px) {
   .supacoat-container {
     padding: 0;
+    width: 100vw;
+    min-width: 0;
   }
   .hero-title {
-    font-size: 1.6rem;
+    font-size: 2rem;
   }
   .hero-subtitle {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   .hero {
     padding: 1.2rem 0.5rem 1rem 0.5rem;
@@ -154,17 +156,45 @@
   .cta-btn {
     font-size: 1rem;
     padding: 0.7rem 1.2rem;
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+    display: block;
   }
   .slider-section {
     padding: 1.2rem 0.2rem 1rem 0.2rem;
   }
   .slider {
-    gap: 1rem;
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: center;
   }
   .slide {
-    min-width: 110px;
-    font-size: 0.85rem;
+    min-width: 90vw;
+    max-width: 98vw;
+    font-size: 0.95rem;
     padding: 0.7rem 0.3rem;
+    margin: 0 auto;
+  }
+  .product-img {
+    width: 80px;
+    height: 80px;
+  }
+  .categories-section {
+    padding: 1rem 0.2rem;
+  }
+  .categories-section h2 {
+    font-size: 1.2rem;
+  }
+  .categories-list {
+    gap: 0.5rem;
+  }
+  .categories-list span {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.7rem;
+  }
+  .categories-note {
+    font-size: 0.9rem;
   }
   .care-section {
     padding: 1rem 0.2rem;
@@ -175,6 +205,11 @@
   .care-section li {
     font-size: 0.9rem;
     padding: 0.7rem;
+  }
+  img[alt="Supacoat Logo"] {
+    width: 80px !important;
+    margin: 1rem auto 0.5rem !important;
+    display: block;
   }
 }
 /* Supacoat Homepage Styles */
