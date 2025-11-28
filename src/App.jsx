@@ -2,6 +2,11 @@
 
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate, useParams } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import './App.css';
 
 function App() {
@@ -47,25 +52,40 @@ function App() {
                 <button className="cta-btn">Shop Wholesale</button>
               </section>
 
-              {/* Product Slider */}
+              {/* Product Slider with Swiper */}
               <section className="slider-section">
                 <h2>Featured Products</h2>
-                <div className="slider">
-                  {products.map((product, idx) => (
-                    <div className={`slide${idx === 0 ? ' active' : ''}`} key={product.name}>
-                      <img src={product.img} alt={product.name} className="product-img" />
-                      <h3 className="product-title">{product.name}</h3>
-                      <p className="product-desc">{product.desc}</p>
-                      <button className="view-btn" onClick={() => handleViewDetails(product)}>View Details</button>
-                      <a
-                        className="whatsapp-btn"
-                        href={`https://wa.me/254702771771?text=Hello%20Supacoat!%20I%20want%20to%20order%20${encodeURIComponent(product.name)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >Order via WhatsApp</a>
-                    </div>
+                <Swiper
+                  modules={[Navigation, Pagination, Autoplay]}
+                  navigation
+                  pagination={{ clickable: true }}
+                  autoplay={{ delay: 3500, disableOnInteraction: false }}
+                  spaceBetween={30}
+                  slidesPerView={1}
+                  breakpoints={{
+                    600: { slidesPerView: 1 },
+                    900: { slidesPerView: 2 },
+                    1200: { slidesPerView: 3 }
+                  }}
+                  style={{ paddingBottom: '2rem' }}
+                >
+                  {products.map((product) => (
+                    <SwiperSlide key={product.name}>
+                      <div className="slide">
+                        <img src={product.img} alt={product.name} className="product-img" />
+                        <h3 className="product-title">{product.name}</h3>
+                        <p className="product-desc">{product.desc}</p>
+                        <button className="view-btn" onClick={() => handleViewDetails(product)}>View Details</button>
+                        <a
+                          className="whatsapp-btn"
+                          href={`https://wa.me/254702771771?text=Hello%20Supacoat!%20I%20want%20to%20order%20${encodeURIComponent(product.name)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >Order via WhatsApp</a>
+                      </div>
+                    </SwiperSlide>
                   ))}
-                </div>
+                </Swiper>
               </section>
 
               {/* Categories Section */}
