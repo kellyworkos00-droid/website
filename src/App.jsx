@@ -7,8 +7,9 @@ function App() {
       {/* Hero Section */}
       <section className="hero">
         <h1 className="hero-title">Supacoat</h1>
-        <p className="hero-subtitle">Premium Product Care & Protection</p>
-        <button className="cta-btn">Shop Now</button>
+        <p className="hero-subtitle">Kenya's Leading Wholesale Shop for Hardware Products</p>
+        <p className="hero-location">Supplying quality hardware across the country</p>
+        <button className="cta-btn">Shop Wholesale</button>
       </section>
 
       {/* Product Slider */}
@@ -38,11 +39,12 @@ function App() {
 
       {/* Product Care Section */}
       <section className="care-section">
-        <h2>Product Care Tips</h2>
+        <h2>Hardware Product Care Tips</h2>
         <ul>
-          <li>Clean regularly for best results.</li>
-          <li>Store in a cool, dry place.</li>
-          <li>Follow instructions for maximum protection.</li>
+          <li>Inspect hardware regularly for wear and tear.</li>
+          <li>Store products in a dry, secure location.</li>
+          <li>Use recommended tools and safety gear.</li>
+          <li>Contact Supacoat for bulk orders and expert advice.</li>
         </ul>
       </section>
     </div>
