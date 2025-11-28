@@ -1,3 +1,60 @@
+/* Responsive Design Enhancements */
+@media (max-width: 900px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero {
+    padding: 2.5rem 1rem 2rem 1rem;
+  }
+  .slider-section h2 {
+    font-size: 1.5rem;
+  }
+  .slide {
+    min-width: 160px;
+    font-size: 1rem;
+    padding: 1.2rem 0.7rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .supacoat-container {
+    padding: 0;
+  }
+  .hero-title {
+    font-size: 1.6rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .hero {
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+  }
+  .cta-btn {
+    font-size: 1rem;
+    padding: 0.7rem 1.2rem;
+  }
+  .slider-section {
+    padding: 1.2rem 0.2rem 1rem 0.2rem;
+  }
+  .slider {
+    gap: 1rem;
+  }
+  .slide {
+    min-width: 110px;
+    font-size: 0.85rem;
+    padding: 0.7rem 0.3rem;
+  }
+  .care-section {
+    padding: 1rem 0.2rem;
+  }
+  .care-section h2 {
+    font-size: 1.1rem;
+  }
+  .care-section li {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+}
 /* Supacoat Homepage Styles */
 .supacoat-container {
   font-family: 'Segoe UI', Arial, sans-serif;
