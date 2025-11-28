@@ -1,0 +1,112 @@
+/* Supacoat Homepage Styles */
+.supacoat-container {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.hero {
+  background: linear-gradient(120deg, #6dd5ed 0%, #2193b0 100%);
+  color: #fff;
+  padding: 4rem 2rem 3rem 2rem;
+  text-align: center;
+  position: relative;
+  animation: fadeIn 1.2s ease;
+}
+.hero-title {
+  font-size: 4rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 4px 24px rgba(0,0,0,0.2);
+}
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+.cta-btn {
+  background: #fff;
+  color: #2193b0;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  border-radius: 30px;
+  box-shadow: 0 2px 12px rgba(33,147,176,0.15);
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+.cta-btn:hover {
+  background: #2193b0;
+  color: #fff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.slider-section {
+  padding: 3rem 1rem 2rem 1rem;
+  text-align: center;
+}
+.slider-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+}
+.slider {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+.slide {
+  background: #fff;
+  color: #2193b0;
+  min-width: 220px;
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 2px 16px rgba(33,147,176,0.10);
+  font-size: 1.3rem;
+  font-weight: 500;
+  opacity: 0.7;
+  transform: scale(0.95);
+  transition: all 0.4s cubic-bezier(.25,.8,.25,1);
+}
+.slide.active {
+  opacity: 1;
+  transform: scale(1.08);
+  box-shadow: 0 4px 24px rgba(33,147,176,0.18);
+}
+.slide:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.care-section {
+  background: #f7fafc;
+  padding: 2.5rem 1rem;
+  text-align: center;
+}
+.care-section h2 {
+  font-size: 2rem;
+  color: #2193b0;
+  margin-bottom: 1rem;
+}
+.care-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 400px;
+}
+.care-section li {
+  background: #e0eafc;
+  color: #213547;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  box-shadow: 0 1px 8px rgba(33,147,176,0.07);
+}
