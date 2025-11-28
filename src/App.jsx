@@ -1,7 +1,39 @@
 
+
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const products = [
+    {
+      name: 'Supacoat Classic',
+      img: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80',
+      desc: 'Reliable protection for everyday use. Keeps surfaces shining and safe.',
+      details: 'Supacoat Classic is perfect for daily use on windows, doors, and cabinets. Provides a lasting shine and protection.'
+    },
+    {
+      name: 'Supacoat Ultra',
+      img: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80',
+      desc: 'Advanced formula for superior care. Long-lasting and ultra-effective.',
+      details: 'Supacoat Ultra offers advanced care for high-traffic areas. Ideal for professional and home use.'
+    },
+    {
+      name: 'Supacoat Pro',
+      img: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80',
+      desc: 'Professional-grade protection for demanding environments.',
+      details: 'Supacoat Pro is designed for industrial and commercial settings, providing maximum durability.'
+    }
+  ];
+
+  const handleViewDetails = (product) => {
+    setSelectedProduct(product);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedProduct(null);
+  };
   return (
     <div className="supacoat-container">
       {/* Hero Section */}
@@ -16,26 +48,40 @@ function App() {
       <section className="slider-section">
         <h2>Featured Products</h2>
         <div className="slider">
-          <div className="slide active">
-            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Supacoat Classic" className="product-img" />
-            <h3 className="product-title">Supacoat Classic</h3>
-            <p className="product-desc">Reliable protection for everyday use. Keeps surfaces shining and safe.</p>
-            <button className="buy-btn">Buy Now</button>
-          </div>
-          <div className="slide">
-            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Supacoat Ultra" className="product-img" />
-            <h3 className="product-title">Supacoat Ultra</h3>
-            <p className="product-desc">Advanced formula for superior care. Long-lasting and ultra-effective.</p>
-            <button className="buy-btn">Buy Now</button>
-          </div>
-          <div className="slide">
-            <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Supacoat Pro" className="product-img" />
-            <h3 className="product-title">Supacoat Pro</h3>
-            <p className="product-desc">Professional-grade protection for demanding environments.</p>
-            <button className="buy-btn">Buy Now</button>
-          </div>
+          {products.map((product, idx) => (
+            <div className={`slide${idx === 0 ? ' active' : ''}`} key={product.name}>
+              <img src={product.img} alt={product.name} className="product-img" />
+              <h3 className="product-title">{product.name}</h3>
+              <p className="product-desc">{product.desc}</p>
+              <button className="view-btn" onClick={() => handleViewDetails(product)}>View Details</button>
+              <a
+                className="whatsapp-btn"
+                href={`https://wa.me/254702771771?text=Hello%20Supacoat!%20I%20want%20to%20order%20${encodeURIComponent(product.name)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >Order via WhatsApp</a>
+            </div>
+          ))}
         </div>
       </section>
+
+      {/* Product Detail Modal */}
+      {selectedProduct && (
+        <div className="modal-overlay" onClick={handleCloseModal}>
+          <div className="modal" onClick={e => e.stopPropagation()}>
+            <img src={selectedProduct.img} alt={selectedProduct.name} className="modal-img" />
+            <h3 className="modal-title">{selectedProduct.name}</h3>
+            <p className="modal-desc">{selectedProduct.details}</p>
+            <a
+              className="whatsapp-btn modal-whatsapp"
+              href={`https://wa.me/254702771771?text=Hello%20Supacoat!%20I%20want%20to%20order%20${encodeURIComponent(selectedProduct.name)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >Order via WhatsApp</a>
+            <button className="close-btn" onClick={handleCloseModal}>Close</button>
+          </div>
+        </div>
+      )}
 
       {/* Categories Section */}
       <section className="categories-section">
