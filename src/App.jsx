@@ -1,11 +1,10 @@
 
 
 import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate, useParams } from 'react-router-dom';
 import './App.css';
 
 function App() {
-  const [selectedProduct, setSelectedProduct] = useState(null);
-
   const products = [
     {
       name: 'Supacoat Classic',
@@ -27,15 +26,81 @@ function App() {
     }
   ];
 
+  const navigate = useNavigate ? useNavigate() : null;
   const handleViewDetails = (product) => {
-    setSelectedProduct(product);
-  };
-
-  const handleCloseModal = () => {
-    setSelectedProduct(null);
+    if (navigate) {
+      navigate(`/product/${encodeURIComponent(product.name)}`);
+    }
   };
   return (
     <div className="supacoat-container">
+      <img src="/new logo.png" alt="Supacoat Logo" style={{width: '120px', margin: '2rem auto 1rem', display: 'block'}} />
+      <Router>
+        <Routes>
+          <Route path="/" element={
+            <>
+              {/* Hero Section */}
+              <section className="hero">
+                <h1 className="hero-title">Supacoat</h1>
+                <p className="hero-subtitle">Kenya's Leading Wholesale Shop for Hardware Products</p>
+                <p className="hero-location">Supplying quality hardware across the country</p>
+                <button className="cta-btn">Shop Wholesale</button>
+              </section>
+
+              {/* Product Slider */}
+              <section className="slider-section">
+                <h2>Featured Products</h2>
+                <div className="slider">
+                  {products.map((product, idx) => (
+                    <div className={`slide${idx === 0 ? ' active' : ''}`} key={product.name}>
+                      <img src={product.img} alt={product.name} className="product-img" />
+                      <h3 className="product-title">{product.name}</h3>
+                      <p className="product-desc">{product.desc}</p>
+                      <button className="view-btn" onClick={() => handleViewDetails(product)}>View Details</button>
+                      <a
+                        className="whatsapp-btn"
+                        href={`https://wa.me/254702771771?text=Hello%20Supacoat!%20I%20want%20to%20order%20${encodeURIComponent(product.name)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >Order via WhatsApp</a>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* Categories Section */}
+              <section className="categories-section">
+                <h2>Our Hardware Categories</h2>
+                <div className="categories-list">
+                  <span>Window Fittings</span>
+                  <span>Caster Wheels</span>
+                  <span>Bathroom Fittings</span>
+                  <span>Cabinet Handles</span>
+                  <span>Door Locks</span>
+                  <span>Taps</span>
+                  <span>Gate Fittings</span>
+                  <span>Sliding Channels</span>
+                  <span>Soft Closing Rails</span>
+                  <span>...and many more!</span>
+                </div>
+                <p className="categories-note">We stock over 1,000 hardware products for wholesale across Kenya.</p>
+              </section>
+
+              {/* Product Care Section */}
+              <section className="care-section">
+                <h2>Hardware Product Care Tips</h2>
+                <ul>
+                  <li>Inspect hardware regularly for wear and tear.</li>
+                  <li>Store products in a dry, secure location.</li>
+                  <li>Use recommended tools and safety gear.</li>
+                  <li>Contact Supacoat for bulk orders and expert advice.</li>
+                </ul>
+              </section>
+            </>
+          } />
+          <Route path="/product/:name" element={<ProductPage products={products} />} />
+        </Routes>
+      </Router>
       {/* Hero Section */}
       <section className="hero">
         <h1 className="hero-title">Supacoat</h1>
@@ -65,23 +130,7 @@ function App() {
         </div>
       </section>
 
-      {/* Product Detail Modal */}
-      {selectedProduct && (
-        <div className="modal-overlay" onClick={handleCloseModal}>
-          <div className="modal" onClick={e => e.stopPropagation()}>
-            <img src={selectedProduct.img} alt={selectedProduct.name} className="modal-img" />
-            <h3 className="modal-title">{selectedProduct.name}</h3>
-            <p className="modal-desc">{selectedProduct.details}</p>
-            <a
-              className="whatsapp-btn modal-whatsapp"
-              href={`https://wa.me/254702771771?text=Hello%20Supacoat!%20I%20want%20to%20order%20${encodeURIComponent(selectedProduct.name)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >Order via WhatsApp</a>
-            <button className="close-btn" onClick={handleCloseModal}>Close</button>
-          </div>
-        </div>
-      )}
+      {/* Product Detail Modal removed for single product page */}
 
       {/* Categories Section */}
       <section className="categories-section">
