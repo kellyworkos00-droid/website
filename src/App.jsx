@@ -37,6 +37,24 @@ function App() {
         </div>
       </section>
 
+      {/* Categories Section */}
+      <section className="categories-section">
+        <h2>Our Hardware Categories</h2>
+        <div className="categories-list">
+          <span>Window Fittings</span>
+          <span>Caster Wheels</span>
+          <span>Bathroom Fittings</span>
+          <span>Cabinet Handles</span>
+          <span>Door Locks</span>
+          <span>Taps</span>
+          <span>Gate Fittings</span>
+          <span>Sliding Channels</span>
+          <span>Soft Closing Rails</span>
+          <span>...and many more!</span>
+        </div>
+        <p className="categories-note">We stock over 1,000 hardware products for wholesale across Kenya.</p>
+      </section>
+
       {/* Product Care Section */}
       <section className="care-section">
         <h2>Hardware Product Care Tips</h2>
