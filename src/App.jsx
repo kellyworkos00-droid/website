@@ -39,7 +39,7 @@ function App() {
   };
   return (
     <div className="supacoat-container">
-      <img src="/new logo.png" alt="Supacoat Logo" style={{width: '120px', margin: '2rem auto 1rem', display: 'block'}} />
+      <img src="/new_logo-removebg-preview.png" alt="Supacoat Logo" style={{width: '120px', margin: '2rem auto 1rem', display: 'block'}} />
       <Router>
         <Routes>
           <Route path="/" element={
