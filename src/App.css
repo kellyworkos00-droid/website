@@ -88,13 +88,13 @@
   color: #2193b0;
 }
 .categories-section {
-  background: #e0eafc;
+  background: #193a6a;
   padding: 2.5rem 1rem;
   text-align: center;
 }
 .categories-section h2 {
   font-size: 2rem;
-  color: #2193b0;
+  color: #e0eafc;
   margin-bottom: 1.2rem;
   font-weight: bold;
 }
@@ -106,8 +106,8 @@
   margin-bottom: 1.2rem;
 }
 .categories-list span {
-  background: #fff;
-  color: #2193b0;
+  background: #0a2342;
+  color: #fff;
   padding: 0.7rem 1.2rem;
   border-radius: 16px;
   font-size: 1rem;
@@ -115,7 +115,7 @@
   font-weight: 500;
 }
 .categories-note {
-  color: #213547;
+  color: #e0eafc;
   font-size: 1.1rem;
   margin-top: 0.5rem;
   font-weight: 500;
@@ -180,14 +180,17 @@
 /* Supacoat Homepage Styles */
 .supacoat-container {
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  background: linear-gradient(135deg, #0a2342 0%, #193a6a 100%);
   min-height: 100vh;
   padding: 0;
   margin: 0;
+  width: 100vw;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .hero {
-  background: linear-gradient(120deg, #6dd5ed 0%, #2193b0 100%);
+  background: linear-gradient(120deg, #193a6a 0%, #0a2342 100%);
   color: #fff;
   padding: 4rem 2rem 3rem 2rem;
   text-align: center;
@@ -313,13 +316,13 @@
 }
 
 .care-section {
-  background: #f7fafc;
+  background: #0a2342;
   padding: 2.5rem 1rem;
   text-align: center;
 }
 .care-section h2 {
   font-size: 2rem;
-  color: #2193b0;
+  color: #e0eafc;
   margin-bottom: 1rem;
   font-weight: bold;
 }
@@ -330,8 +333,8 @@
   max-width: 400px;
 }
 .care-section li {
-  background: #e0eafc;
-  color: #213547;
+  background: #193a6a;
+  color: #fff;
   margin-bottom: 1rem;
   padding: 1rem;
   border-radius: 12px;
